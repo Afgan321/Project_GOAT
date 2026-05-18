@@ -1,17 +1,17 @@
 import random
 import time
-
+#HARDCORE
 print("..........................")
 print("    TEBAK ANGKA BULAT")
 print("''''''''''''''''''''''''''")
 
-f = 3
+f = 15
 while f > 0 :
 
  try :
     print("")
 
-    b = random.randint(1,5)
+    b = random.randint(1,100)
     a = int(input("Masukkan angka: ", ))
 
     print("\nBener ga yh?")
@@ -39,3 +39,5 @@ while f > 0 :
 print("..........................")
 print("       DAH SELESAI")
 print("''''''''''''''''''''''''''")
+
+A = input()
