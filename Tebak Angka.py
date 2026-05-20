@@ -1,21 +1,21 @@
 import random
 import time
-#HARDCORE
 print("..........................")
 print("    TEBAK ANGKA BULAT")
+print("       1 sampai 10")
 print("''''''''''''''''''''''''''")
 
-f = 15
+f = 5
 while f > 0 :
 
  try :
     print("")
 
-    b = random.randint(1,100)
+    b = random.randint(1,10)
     a = int(input("Masukkan angka: ", ))
 
     print("\nBener ga yh?")
-    time.sleep (0.5)
+    time.sleep (1)
     if a == b :
 
         print("----BENAR!!!----")
@@ -25,12 +25,14 @@ while f > 0 :
     if f == 1 :
         print("plenger bet woilah")
         print("Angka yang benar: ", b)
+        print("Nyawa lu abis")
         break
 
     else:
         print("plenger")
         f -= 1
         print("Angka yang benar: ", b)
+        print(f"nyawa lu tinggal {f}")
  except:
     print("Dongo Promax")
         
