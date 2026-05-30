@@ -14,6 +14,7 @@ while True:
 
     if tebakanKata == kata:
         print("benar")
+        break
         
     else:
         print("tebakan lu salah")
@@ -26,4 +27,4 @@ while True:
         print(f"kata yang benar itu: {kata}")
         break
 
-    print()
+input()
