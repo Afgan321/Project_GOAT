@@ -7,6 +7,7 @@ papan = [
 ]
 
 def tampilkanPapan():
+    print(f"--RONDE KE- {b}!!!--")
     print("-" * 18)
     for i in papan:
         print("    |   ".join(i))
@@ -19,7 +20,6 @@ a = 9
 b = 1
 while True :
     print()
-    print(f"--RONDE KE- {b}!!!--")
     tampilkanPapan()
     print(f"Giliran {giliran} bermain")
 
@@ -49,10 +49,7 @@ while True :
         a -= 1
         
 
-    if a == 0:
-        tampilkanPapan()
-        print("SERI")
-        break
+    
 
 #horizontal
     if papan[1-1][1-1] == papan[1-1][2-1] == papan[1-1][3-1] ==  "O" :
@@ -133,4 +130,8 @@ while True :
 
     b += 1
 
+    if a == 0:
+        tampilkanPapan()
+        print("SERI")
+        break
 
