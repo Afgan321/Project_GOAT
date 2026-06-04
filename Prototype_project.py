@@ -30,6 +30,7 @@ def masukkanangkaplayer():
 def jujur(angkabenar,angkasalah,giliran):
     time.sleep(0.5)
     print()
+    print()
     print(f"{giliran} berkata bahwa: ")
     print(f"{angkabenar} angka benar")
     print(f"{angkasalah} angka salah")
