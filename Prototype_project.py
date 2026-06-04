@@ -1,14 +1,18 @@
 import random
 import time
+
+#VARIABEL
 skorplayer = 0
 skorbot = 0
 giliran = "PLAYER"
 tebakanplayer = 0
-
 angkabenar = 0
 angkasalah= 0
 pilihan = 0
 
+
+
+#FUNCTION
 def tampilkanskor():
     time.sleep(0.5)
     print()
@@ -21,7 +25,7 @@ def masukkanangkaplayer():
     angkabenar = int(input("Masukan angka pertama: "))
     angkasalah = int(input("Masukan angka kedua: "))
     
-    a =  input("Apakah anda ingin jujur?(y/n)" .lower())
+    a =  input("Apakah anda ingin jujur?(y/n)").lower()
     if a == "y":
         return angkabenar, angkasalah, 1
     else:
@@ -69,64 +73,67 @@ def logikatebakanplayer(angkabenarbot, angkasalahbot,tebakanplayer):
     tebakanplayer = int(input("Tebakan player adalah: "))
     return tebakanplayer
 
-
-
-while True:
-    time.sleep(0.5)
-    print()
-    if giliran == "PLAYER" :
-        print(f"===Giliran {giliran} MEMBERI ANGKA===")
-        angkabenar,angkasalah,pilihan= masukkanangkaplayer()
-
-        if pilihan == 1:
-            jujur(angkabenar,angkasalah,giliran)
-        else:
-            bohong(angkabenar,angkasalah,giliran)
-
-        tebakan = tebakanbot(angkabenar,angkasalah)
-
-        if tebakan == angkabenar:
-            print("tebakan bot benar")
-            skorbot += 1
-        else:
-            print("tebakan bot salah")
-            skorbot -=1
-
-        tampilkanskor()
-
-        giliran = "BOT"
-
-        
-
-    elif giliran == "BOT":
-        print(f"===GILIRAN {giliran} MEMBERI ANGKA===")
-        angkabenarbot,angkasalahbot,pilihanbot= masukkanangkaBot(skorplayer,skorbot)
-
-        if pilihanbot == 1:
-            jujur(angkabenarbot,angkasalahbot,giliran)
-        else:
-            bohong(angkabenarbot,angkasalahbot,giliran)
-
-        tebakanplayer1 = logikatebakanplayer(angkabenarbot,angkasalahbot,tebakanplayer)
-
-        if tebakanplayer1 == angkabenarbot:
-            print("tebakan player benar")
-            skorplayer += 1
-        else:
-            print("tebakan player salah")
-            skorplayer -=1
-
-        tampilkanskor()
-
-    
-        giliran = "PLAYER"
-        
-
+def decisionbot(pilihanbot):
+    if pilihanbot == 1:
+        jujur(angkabenarbot,angkasalahbot,giliran)
     else:
-        print("Error")
+        bohong(angkabenarbot,angkasalahbot,giliran)
+
+def logikamenangplayer(skorplayer11):   
+    if tebakanplayer1 == angkabenarbot:
+        print("tebakan player benar")
+        return skorplayer11 + 1
+    else:
+        print("tebakan player salah")
+        return skorplayer11 -1
+
+def decisionplayer():
+    if pilihan == 1:
+        jujur(angkabenar,angkasalah,giliran)
+    else:
+        bohong(angkabenar,angkasalah,giliran)
+
+def logikamenangbot(skorbot11):
+    if tebakan == angkabenar:
+        print("tebakan bot benar")
+        return skorbot11 + 1
+    else:
+        print("tebakan bot salah")
+        return skorbot11 - 1
+
+
+
+#MAIN
+while True:
+        
+    try:
+        time.sleep(0.5)
+        print()
+        if giliran == "PLAYER" :
+            print(f"===Giliran {giliran} MEMBERI ANGKA===")
+            angkabenar,angkasalah,pilihan= masukkanangkaplayer()
+            decisionplayer()
+            tebakan = tebakanbot(angkabenar,angkasalah)
+            skorbot = logikamenangbot(skorbot)
+            tampilkanskor()
+            giliran = "BOT"
+
+        elif giliran == "BOT":
+            print(f"===GILIRAN {giliran} MEMBERI ANGKA===")
+            angkabenarbot,angkasalahbot,pilihanbot= masukkanangkaBot(skorplayer,skorbot)
+            decisionbot(pilihanbot)
+            tebakanplayer1 = logikatebakanplayer(angkabenarbot,angkasalahbot,tebakanplayer)
+            skorplayer = logikamenangplayer(skorplayer)
+            tampilkanskor()
+            giliran = "PLAYER"
+
+    except ValueError:
+        print("ERROR: SILAHKAN ULANG DAN HANYA MASUKKAN ANGKA!!!")
+        
+
+
 
     
-
 
     
 
