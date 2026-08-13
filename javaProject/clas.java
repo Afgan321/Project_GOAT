@@ -15,6 +15,7 @@ public class clas {
 
         scanner.close();
         System.out.println(clint.skill);
+        System.out.print(clint.damage);
         System.out.println("selesai");
     }
 
