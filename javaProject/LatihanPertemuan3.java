@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package latihan.pertemuan.pkg3;
+package javaProject;
 //@author Fahcrul goat larper
 import java.util.Scanner;
 
@@ -54,6 +54,8 @@ public class LatihanPertemuan3 {
         System.out.print("Volume bangun: ");       
         System.out.println(jariJari * jariJari * jariJari * phi * 4 / 3);
         System.out.println("Selesai");
+
+        scanner.close();
     }
     
 }
